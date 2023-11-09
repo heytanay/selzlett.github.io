@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal</title>
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: monospace;
+            white-space: pre;
+            padding: 20px;
+            margin: 0;
+        }
+
+        #terminal-input {
+            color: green;
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="terminal-output">Welcome Root!<br></div>
+    <div id="terminal-input">
+<span id="username">selzlett@github:</span><span id="command" contenteditable="true"></span>
+    </div>
+
+    <script>
+        const terminalOutput = document.getElementById("terminal-output");
+        const terminalInput = document.getElementById("command");
+
+        terminalInput.focus();
+
+        terminalInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                const command = terminalInput.textContent.trim();
+                terminalOutput.innerHTML += `<div>selzlett@github:${command}</div>`;
+                if (command.toLowerCase() === "exit") {
+                    terminalOutput.innerHTML += `<div>Goodbye!</div>`;
+                    terminalInput.contentEditable = "false";
+                } else if (command.toLowerCase() === "help") {
+                    terminalOutput.innerHTML += `
+                        <div>Available commands:</div>
+                        <div>cd &lt;directory_name&gt; - Change directory</div>
+                        <div>clear - Clear the terminal</div>
+                        <div>show - Show available directories</div>
+                        <div>exit - Exit the terminal</div>
+                    `;
+                } else if (command.toLowerCase() === "clear") {
+                    terminalOutput.innerHTML = "";
+                } else if (command.toLowerCase() === "show") {
+                    terminalOutput.innerHTML += `
+                        <div>Directories:</div>
+                        <div>experience</div>
+                        <div>research</div>
+                        <div>projects</div>
+                        <div>education</div>
+                        <div>skills</div>
+                        <div>links</div>
+                        <div>languages</div>
+                    `;
+                } else if (command.toLowerCase().startsWith("cd ")) {
+                    const directory = command.slice(3).trim();
+                    if (directory === "experience" || directory === "research" || directory === "projects" ||
+                        directory === "education" || directory === "skills" || directory === "links" || directory === "languages") {
+                        terminalOutput.innerHTML += `<div>Showing content of ${directory} directory...</div>`;
+                        // Add logic to show content of the specified directory here
+                    } else {
+                        terminalOutput.innerHTML += `<div>Directory not found: ${directory}</div>`;
+                    }
+                } else {
+                    terminalOutput.innerHTML += `<div>Command not found: ${command}</div>`;
+                }
+                terminalInput.textContent = "";
+            }
+        });
+    </script>
+</body>
+
+</html>
