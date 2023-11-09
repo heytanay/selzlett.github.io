@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- main-->
 <html lang="en">
 
 <head>
@@ -46,30 +45,42 @@
                 } else if (command.toLowerCase() === "help") {
                     terminalOutput.innerHTML += `
                         <div>Available commands:</div>
-                        <div>cd &lt;directory_name&gt; - Change directory</div>
-                        <div>clear - Clear the terminal</div>
-                        <div>show - Show available directories</div>
-                        <div>exit - Exit the terminal</div>
+    <div>cd &lt;directory_name&gt; - Change directory</div> <div>clear - Clear the terminal</div> <div>show - Show available directories</div> <div>exit - Exit the terminal</div>
                     `;
                 } else if (command.toLowerCase() === "clear") {
                     terminalOutput.innerHTML = "";
                 } else if (command.toLowerCase() === "show") {
                     terminalOutput.innerHTML += `
                         <div>Directories:</div>
-                        <div>experience</div>
-                        <div>research</div>
-                        <div>projects</div>
-                        <div>education</div>
-                        <div>skills</div>
-                        <div>links</div>
-                        <div>languages</div>
+    <div>about</div> <div>experience</div> <div>research</div> <div>projects</div> <div>education</div> <div>skills</div> <div>links</div> <div>languages</div>
                     `;
                 } else if (command.toLowerCase().startsWith("cd ")) {
                     const directory = command.slice(3).trim();
                     if (directory === "experience" || directory === "research" || directory === "projects" ||
-                        directory === "education" || directory === "skills" || directory === "links" || directory === "languages") {
+                        directory === "education" || directory === "skills" || directory === "links" || directory === "languages" || directory === "about") {
                         terminalOutput.innerHTML += `<div>Showing content of ${directory} directory...</div>`;
+                       
                         // Add logic to show content of the specified directory here
+                        if (directory == "about")
+                        {
+                            terminalOutput.innerHTML += `<div>Name: Tanmay Mishra</div><div>Age: 22</div><div>Location: Delhi</div>`;
+                        }
+                        if (directory == "experience")
+                        {
+                            terminalOutput.innerHTML += `<div></div>`;
+                        }
+                        if (directory == "about")
+                        {
+                            terminalOutput.innerHTML += `<div></div>`;
+                        }
+                        if (directory == "about")
+                        {
+                            terminalOutput.innerHTML += `<div></div>`;
+                        }
+                        if (directory == "about")
+                        {
+                            terminalOutput.innerHTML += `<div></div>`;
+                        }
                     } else {
                         terminalOutput.innerHTML += `<div>Directory not found: ${directory}</div>`;
                     }
