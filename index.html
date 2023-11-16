@@ -56,47 +56,50 @@
                     `;
                 } else if (command.toLowerCase().startsWith("cd ")) {
                     const directory = command.slice(3).trim();
-                    if (directory === "experience" || directory === "research" || directory === "projects" ||
-                        directory === "education" || directory === "skills" || directory === "links" || directory === "languages" || directory === "about") {
-                        terminalOutput.innerHTML += `<div>Showing content of ${directory} directory...</div>`;
-                       
-                        // Add logic to show content of the specified directory here
-                        if (directory == "about") {
-    terminalOutput.innerHTML += `
-        <div>Name: Tanmay Mishra</div>
-        <div>Age: 22</div>
-        <div>Location: Delhi</div>`;
-}
+                   if (directory === "experience" || directory === "research" || directory === "projects" ||
+    directory === "education" || directory === "skills" || directory === "links" || directory === "languages" || directory === "about") {
+    terminalOutput.insertAdjacentHTML('beforeend', `<div>Showing content of ${directory} directory...</div>`);
+    
+    // Add logic to show content of the specified directory here
+    if (directory == "about") {
+        terminalOutput.insertAdjacentHTML('beforeend', `
+            <div>Name: Tanmay Mishra</div>
+            <div>Age: 22</div>
+            <div>Location: Delhi</div>
+        `);
+    }
 
-if (directory == "experience") {
-    terminalOutput.innerHTML += `
-        <div>Software Engineer Intern | SSPL (Solid State Physics Laboratory), DRDO, Delhi</div>
-        <div>July 2023 – Aug 2023 | SSPL</div>
-        <div>Software Engineer Intern | BEL (Bharat Electronics Limited), Ghaziabad, UP</div>
-        <div>May 2023 – June 2023</div>`;
-}
-
+    if (directory == "experience") {
+        terminalOutput.insertAdjacentHTML('beforeend', `
+            <div>Software Engineer Intern | SSPL (Solid State Physics Laboratory), DRDO, Delhi</div>
+            <div>July 2023 – Aug 2023 | SSPL</div>
+            <div>Software Engineer Intern | BEL (Bharat Electronics Limited), Ghaziabad, UP</div>
+            <div>May 2023 – June 2023</div>
+        `);
+    }
 if (directory == "research") {
-    terminalOutput.innerHTML += `
-        <div>Deep Learning in Software Defect Prediction | Research Assistant</div>
-        <div>Aug 2023 – Oct 2023 | KIIT, OD</div>`;
-}
+        terminalOutput.insertAdjacentHTML('beforeend', `
+            <div>Deep Learning in Software Defect Prediction | Research Assistant</div>
+            <div>Aug 2023 – Oct 2023 | KIIT, OD</div>
+        `);
+    }
 
-if (directory == "projects") {
-    terminalOutput.innerHTML += `
-        <div>NAS Server System</div>
-        <div>Blockchain-Based Intellectual Property Rights ManagementSystem</div>
-        <div>Real-Time Network Monitoring with Historical Graphs</div>`;
-}
+    if (directory == "projects") {
+        terminalOutput.insertAdjacentHTML('beforeend', `
+            <div>NAS Server System</div>
+            <div>Blockchain-Based Intellectual Property Rights ManagementSystem</div>
+            <div>Real-Time Network Monitoring with Historical Graphs</div>
+        `);
+    }
 
-if (directory == "about") {
-    terminalOutput.innerHTML += `
-        <div>Hello LinkedIn community! 👋 I'm Tanmay, a passionate computer science student dedicated to leveraging technology for positive change. 🌐💻</div>`;
+    if (directory == "about") {
+        terminalOutput.insertAdjacentHTML('beforeend', `
+            <div>Hello LinkedIn community! 👋 I'm Tanmay, a passionate computer science student dedicated to leveraging technology for positive change. 🌐💻</div>
+        `);
+    }
+} else {
+    terminalOutput.innerHTML += `<div>Directory not found: ${directory}</div>`;
 }
-
-                    } else {
-                        terminalOutput.innerHTML += `<div>Directory not found: ${directory}</div>`;
-                    }
                 } else {
                     terminalOutput.innerHTML += `<div>Command not found: ${command}</div>`;
                 }
