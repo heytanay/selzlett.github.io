@@ -1,8 +1,6 @@
 # Web Terminal Emulator
 # selzlett.github.io
 
-![Terminal Screenshot](screenshot.png)
-
 A web-based terminal emulator project that provides a simple command-line interface in the browser. This project is designed to emulate a basic terminal experience with commands like `cd`, `clear`, `show`, and `exit`.
 
 ## Table of Contents
